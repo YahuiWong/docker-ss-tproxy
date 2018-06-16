@@ -1,0 +1,11 @@
+version: '2'
+services:
+  ss-tproxy:
+      # 镜像的路径
+    build: .
+    privileged: true
+    volumes:
+      - ./conf/ss-tproxy.conf:/etc/tproxy/ss-tproxy.conf
+    restart: always
+        # 容器名称
+    container_name: ss-tproxy
