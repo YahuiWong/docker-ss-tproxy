@@ -6,4 +6,4 @@ MAINTAINER YahuiWong <yahui9119@live.com>
 
 
 RUN curl --silent --location https://github.com/YahuiWong/Usefulfiles/raw/master/install-ss-tproxy.sh  | bash - 
-CMD ["ss-tproxy"," restart","&&","tail","-f","/var/log/pdnsd.log"]
+ENTRYPOINT ss-tproxy restart && tail -f /var/log/pdnsd.log
