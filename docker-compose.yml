@@ -2,10 +2,12 @@ version: '2'
 services:
   ss-tproxy:
       # 镜像的路径
-    build: .
+    image: yahuiwong/ss-tproxy:3.1.0
     privileged: true
     volumes:
-      - ./conf/ss-tproxy.conf:/etc/tproxy/ss-tproxy.conf
+      - ./conf/ss-tproxy.conf:/etc/ss-tproxy/ss-tproxy.conf
+      - ./conf/ssr-local.json:/etc/ss-tproxy/ssr-local.json
+      -- /lib/modules/3.10.0-862.el7.x86_64/:/lib/modules/3.10.0-862.el7.x86_64/
     restart: always
         # 容器名称
     container_name: ss-tproxy

@@ -16,7 +16,7 @@ systemctl disable firewalld.service
 
 # Install Lib
 bigecho "Install Library, Pleast wait..."
-yum -y install git gettext gcc autoconf libtool make asciidoc xmlto c-ares-devel libev-devel \
+rpm --rebuilddb && yum -y install sysvinit-tools dnsmasq git gettext gcc autoconf libtool make asciidoc xmlto c-ares-devel libev-devel \
   openssl-devel net-tools curl ipset iproute perl wget gcc bind-utils vim || exiterr2
 
 # Install haveged
@@ -161,8 +161,8 @@ bigecho "Please modify /etc/tproxy/ss-tproxy.conf before start."
 bigecho "#ss-tproxy start"
 bigecho "#######################################################"
 
-bigecho "#####################TestBegin##################################"
-curl https://google.com
-dig @208.67.222.222 -p443 www.google.com
-dig @8.8.8.8 -p53 www.google.com
-bigecho "#####################TestEnd##################################"
+#bigecho "#####################TestBegin##################################"
+#curl https://google.com
+#dig @208.67.222.222 -p443 www.google.com
+#dig @8.8.8.8 -p53 www.google.com
+#bigecho "#####################TestEnd##################################"
