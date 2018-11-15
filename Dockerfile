@@ -6,4 +6,4 @@ MAINTAINER YahuiWong <yahui9119@live.com>
 
 COPY install-ss-tproxy.sh /install-ss-tproxy.sh
 RUN sh /install-ss-tproxy.sh
-ENTRYPOINT ss-tproxy update-gfwlist && ss-tproxy update-chnroute && ss-tproxy update-chnonly && ss-tproxy restart
+ENTRYPOINT ss-tproxy update-gfwlist && ss-tproxy update-chnroute && ss-tproxy update-chnonly && ss-tproxy restart &&  tail -f /var/log/ssr-redir.log 
