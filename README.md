@@ -1,4 +1,9 @@
 # docker-ss-tproxy
+[![](https://images.microbadger.com/badges/image/yahuiwong/ss-tproxy.svg)](https://microbadger.com/images/yahuiwong/ss-tproxy "Get your own image badge on microbadger.com")
+[![](https://images.microbadger.com/badges/version/yahuiwong/ss-tproxy.svg)](https://microbadger.com/images/yahuiwong/ss-tproxy "Get your own version badge on microbadger.com")
+
+
+
 ss-redir 全局透明代理 (REDIRECT + TPROXY)
 封装自 https://github.com/YahuiWong/ss-tproxy
 
