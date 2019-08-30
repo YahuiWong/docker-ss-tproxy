@@ -102,7 +102,7 @@ fi
 # Build MbedTLS
 if [ ! -f "/usr/lib/libmbedtls.so" ]; then
     bigecho "Build MbedTLS, Pleast wait..."
-    MBEDTLS_VER=2.6.0
+    MBEDTLS_VER=2.16.2
     MBEDTLS_FILE="mbedtls-$MBEDTLS_VER"
     MBEDTLS_URL="https://tls.mbed.org/code/releases/$MBEDTLS_FILE-gpl.tgz"
     if ! wget --no-check-certificate -O $MBEDTLS_FILE-gpl.tgz $MBEDTLS_URL; then
