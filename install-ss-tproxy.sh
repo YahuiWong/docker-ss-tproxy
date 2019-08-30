@@ -84,7 +84,7 @@ fi
 # Build Libsodium
 if [ ! -f "/usr/lib/libsodium.so" ]; then
     bigecho "Build Libsodium, Pleast wait..."
-    LIBSODIUM_VER=1.0.14
+    LIBSODIUM_VER=1.0.18
     LIBSODIUM_FILE="libsodium-$LIBSODIUM_VER"
     LIBSODIUM_URL="https://download.libsodium.org/libsodium/releases/$LIBSODIUM_FILE.tar.gz"
     if ! wget --no-check-certificate -O $LIBSODIUM_FILE.tar.gz $LIBSODIUM_URL; then
