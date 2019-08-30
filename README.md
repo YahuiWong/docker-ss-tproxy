@@ -10,6 +10,7 @@ ss-redir 全局透明代理 (REDIRECT + TPROXY)
 ## 注意：
 
 你的docker宿主内核版本要是：4.19.2-1.el7.elrepo.x86_64
+如果不是的话 使用一下方式修改 
 ```sh
 wget http://mirror.rc.usf.edu/compute_lock/elrepo/kernel/el7/x86_64/RPMS/kernel-ml-4.19.2-1.el7.elrepo.x86_64.rpm
 yum install kernel-ml-4.19.2-1.el7.elrepo.x86_64.rpm -y
