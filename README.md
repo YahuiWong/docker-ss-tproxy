@@ -6,7 +6,7 @@
 
 ss-redir 全局透明代理 (REDIRECT + TPROXY)
 封装自 https://github.com/YahuiWong/ss-tproxy
-
+<!--https://raw.githubusercontent.com/docker/docker/master/contrib/mkimage-yum.sh-->
 ## 注意：
 
 你的docker宿主内核版本要是：4.19.2-1.el7.elrepo.x86_64
