@@ -7,7 +7,7 @@ services:
     volumes:
       - ./conf/ss-tproxy.conf:/etc/ss-tproxy/ss-tproxy.conf
       - ./conf/ssr-local.json:/etc/ss-tproxy/ssr-local.json
-      - /lib/modules/3.10.0-862.el7.x86_64/:/lib/modules/3.10.0-862.el7.x86_64/
+      - /lib/modules/4.19.2-1.el7.elrepo.x86_64/:/lib/modules/4.19.2-1.el7.elrepo.x86_64/
     restart: always
         # 容器名称
     container_name: ss-tproxy
