@@ -52,6 +52,7 @@ if ! type aclocal-1.15 2>/dev/null; then
     ./configure
     make && make install
     popd
+    rm -fr  $AUTOMAKE_FILE.tar.gz  $AUTOMAKE_FILE
 fi
 
 # # Build dnsforwarder
@@ -79,6 +80,7 @@ if ! type chinadns 2>/dev/null; then
     ./configure
     make && make install
     popd
+    rm -fr $CHINADNS_FILE.tar.gz $CHINADNS_FILE
 fi
 
 # Build Libsodium
@@ -97,6 +99,7 @@ if [ ! -f "/usr/lib/libsodium.so" ]; then
     make install
     popd
     ldconfig
+    rm -fr $LIBSODIUM_FILE.tar.gz
 fi
 
 # Build MbedTLS
@@ -164,22 +167,21 @@ fi
 # Install SS-TPROXY
 if ! type ss-tproxy 2>/dev/null; then
     bigecho "Install SS-TProxy, Pleast wait..."
-    git clone https://github.com/YahuiWong/ss-tproxy.git
+    git clone https://github.com/zfl9/ss-tproxy.git
     pushd ss-tproxy
-    cp -af ss-tproxy /usr/local/bin
-	chmod 0755 /usr/local/bin/ss-tproxy
-	chown root:root /usr/local/bin/ss-tproxy
-	mkdir -m 0755 -p /etc/ss-tproxy
-	cp -af ss-tproxy.conf gfwlist.* chnroute.* /etc/ss-tproxy
-	chmod 0644 /etc/ss-tproxy/* && chown -R root:root /etc/ss-tproxy
+    chmod +x ss-tproxy
+    install ss-tproxy /usr/local/bin
+    install -d /etc/ss-tproxy
+    install -m 644 ss-tproxy.conf gfwlist* chnroute* ignlist* /etc/ss-tproxy
     popd
 
     # Systemctl
     pushd ss-tproxy
-    cp -af ss-tproxy.service /etc/systemd/system/
-    popd
+    install -m 644 ss-tproxy.service /etc/systemd/system # 可选，安装 service 文件
     systemctl daemon-reload
     systemctl enable ss-tproxy.service
+    popd
+    rm -fr ss-tproxy
 fi
 
 # Display info
