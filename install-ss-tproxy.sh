@@ -17,7 +17,7 @@ systemctl disable firewalld.service
 # Install Lib
 bigecho "Install Library, Pleast wait..."
 rpm --rebuilddb && yum -y install sysvinit-tools dnsmasq git gettext gcc autoconf libtool make asciidoc xmlto c-ares-devel libev-devel \
-  openssl-devel net-tools curl ipset iproute perl wget gcc bind-utils vim || exiterr2
+  openssl-devel net-tools curl ipset iproute2 perl wget gcc bind-utils vim || exiterr2
 
 # Install haveged
 if ! type haveged 2>/dev/null; then
@@ -116,6 +116,32 @@ if [ ! -f "/usr/lib/libmbedtls.so" ]; then
     popd
     ldconfig
 fi
+# Install v2ray
+if ! type v2ray 2>/dev/null; then
+    bigecho "Install v2ray, Pleast wait..."
+    #// 安裝執行檔和 .dat 資料檔
+    bash <(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh)
+    v2ray -help
+fi
+
+#Build dns2tcp
+if ! type ssr-redir 2>/dev/null; then
+    bigecho "Build dns2tcp, Pleast wait..."
+    git clone https://github.com/zfl9/dns2tcp.git
+    pushd dns2tcp
+    make && make install
+    popd
+    rm -fr dns2tcp
+fi
+#Build ipt2socks
+if ! type ssr-redir 2>/dev/null; then
+    bigecho "Build ipt2socks, Pleast wait..."
+    git clone https://github.com/zfl9/ipt2socks.git
+    pushd ipt2socks
+    make && make install
+    popd
+    rm -fr ipt2socks
+fi
 
 #Build shadowsocksr-libev
 if ! type ssr-redir 2>/dev/null; then
@@ -125,6 +151,7 @@ if ! type ssr-redir 2>/dev/null; then
     ./configure --prefix=/usr/local/ssr-libev
     make && make install
     popd
+    rm -fr shadowsocksr-libev
     pushd /usr/local/ssr-libev/bin
     mv ss-redir ssr-redir
     mv ss-local ssr-local
