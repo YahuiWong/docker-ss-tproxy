@@ -22,8 +22,8 @@ rpm --rebuilddb && yum -y install sysvinit-tools dnsmasq git gettext gcc autocon
 # Install haveged
 if ! type haveged 2>/dev/null; then
     bigecho "Install Haveged, Pleast wait..."
-    HAVEGED_VER=1.9.1-1
-    HAVEGED_URL="http://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/h/haveged-$HAVEGED_VER.el7.x86_64.rpm"
+    HAVEGED_VER=1.9.13-1
+    HAVEGED_URL="https://mirrors.aliyun.com/epel/7/x86_64/Packages/h/haveged-$HAVEGED_VER.el7.x86_64.rpm"
     yum -y install "$HAVEGED_URL" || exiterr2
     systemctl start haveged
     systemctl enable haveged
