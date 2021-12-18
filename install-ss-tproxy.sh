@@ -123,7 +123,7 @@ fi
 if ! type v2ray 2>/dev/null; then
     bigecho "Install v2ray, Pleast wait..."
     #// 安裝執行檔和 .dat 資料檔
-    curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh | sh
+    curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh | bash
     v2ray -help
 fi
 
