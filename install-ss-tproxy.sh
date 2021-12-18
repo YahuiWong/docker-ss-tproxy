@@ -29,13 +29,13 @@ if ! type haveged 2>/dev/null; then
     systemctl enable haveged
 fi
 
-# Install pdnsd
-if ! type pdnsd 2>/dev/null; then
-    bigecho "Install Pdnsd, Pleast wait..."
-    PDNSD_VER=1.2.9a
-    PDNSD_URL="http://members.home.nl/p.a.rombouts/pdnsd/releases/pdnsd-$PDNSD_VER-par_sl6.x86_64.rpm"
-    yum -y install "$PDNSD_URL" || exiterr2
-fi
+# # Install pdnsd
+# if ! type pdnsd 2>/dev/null; then
+#     bigecho "Install Pdnsd, Pleast wait..."
+#     PDNSD_VER=1.2.9a
+#     PDNSD_URL="http://members.home.nl/p.a.rombouts/pdnsd/releases/pdnsd-$PDNSD_VER-par_sl6.x86_64.rpm"
+#     yum -y install "$PDNSD_URL" || exiterr2
+# fi
 
 # Build aclocal-1.15, it's needed by dnsforwarder
 if ! type aclocal-1.15 2>/dev/null; then
