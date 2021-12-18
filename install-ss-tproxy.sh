@@ -54,15 +54,15 @@ if ! type aclocal-1.15 2>/dev/null; then
     popd
 fi
 
-# Build dnsforwarder
-if ! type dnsforwarder 2>/dev/null; then
-    bigecho "Build dnsforwarder, Pleast wait..."
-    git clone https://github.com/holmium/dnsforwarder.git
-    pushd dnsforwarder
-    ./configure --enable-downloader=no
-    make && make install
-    popd
-fi
+# # Build dnsforwarder
+# if ! type dnsforwarder 2>/dev/null; then
+#     bigecho "Build dnsforwarder, Pleast wait..."
+#     git clone https://github.com/holmium/dnsforwarder.git
+#     pushd dnsforwarder
+#     ./configure --enable-downloader=no
+#     make && make install
+#     popd
+# fi
 
 # Build chinadns
 if ! type chinadns 2>/dev/null; then
