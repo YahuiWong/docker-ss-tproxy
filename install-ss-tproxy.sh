@@ -145,7 +145,15 @@ if ! type ssr-redir 2>/dev/null; then
     popd
     rm -fr ipt2socks
 fi
-
+#Build chinadns-ng
+if ! type ssr-redir 2>/dev/null; then
+    bigecho "Build chinadns-ng, Pleast wait..."
+    git clone https://github.com/zfl9/chinadns-ng.git
+    pushd chinadns-ng
+    make && make install
+    popd
+    rm -fr chinadns-ng
+fi
 #Build shadowsocksr-libev
 if ! type ssr-redir 2>/dev/null; then
     bigecho "Build shadowsocksr-libev, Pleast wait..."
