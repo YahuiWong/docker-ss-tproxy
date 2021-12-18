@@ -1,6 +1,7 @@
 # 拉取 CentOS
 #FROM hub.c.163.com/library/centos:latest
-FROM yahuiwong/centos:7.5.1804Linux4.19.2-1.el7.elrepo.x86_64
+# FROM yahuiwong/centos:7.5.1804Linux4.19.2-1.el7.elrepo.x86_64
+FROM centos7:7.9.2009
 # 维护者
 MAINTAINER YahuiWong <yahui9119@live.com>
 RUN cp -a /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.bak &&\
